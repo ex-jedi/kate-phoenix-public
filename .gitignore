@@ -1,0 +1,9 @@
+perch/config/config.php
+perch/resources/
+perch/config/shop.php
+shop/checkout.php
+node_modules/
+*.db
+perch/addons/apps/perch_gallery/lang/
+perch/addons/apps/jw_activity_log/lang/
+.sass-lint.yml

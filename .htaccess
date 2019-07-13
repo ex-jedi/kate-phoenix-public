@@ -1,0 +1,58 @@
+#In repo but not deployed. Changes must be made manually.
+
+#Strict https
+#<IfModule mod_headers.c>
+#     Header always set Strict-Transport-Security "max-age=16070400"
+#</IfModule>
+
+# Caching. 1 Month for most static assets
+#<filesMatch ".(css|jpg|jpeg|png|gif|js|ico)$">
+#Header set Cache-Control "max-age=2592000, public"
+#</filesMatch>
+
+<IfModule mod_rewrite.c>
+RewriteEngine on
+# 301 redirect to https
+#RewriteCond %{HTTPS} off
+#RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+#Force non www
+#RewriteCond %{HTTP_HOST} ^www.yourdomain.com [NC]
+#RewriteRule ^(.*)$ http://yourdomain.com/$1 [L,R=301]
+
+#Removing Trailing Slash
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} (.+)/$
+RewriteRule ^ %1 [R=301,L]
+
+# Redirect to PHP if it exists.
+# e.g. example.com/foo will display the contents of example.com/foo.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.+)$ $1.php [L,QSA]
+
+#Blog Previews
+RewriteRule ^journal/([a-zA-Z0-9-/]+)/preview$ /journal/post.php?s=$1&preview=all [L]
+
+#Blog Categories
+RewriteRule ^journal/category/([a-zA-Z0-9-/]+)/page/([0-9]+)/{0,1}$ /journal/archive.php?cat=$1&page=$2 [L]
+RewriteRule ^journal/category/([a-zA-Z0-9-/]+)$ /journal/archive.php?cat=$1 [L]
+
+#Blog Archive
+RewriteRule ^journal/date/([a-zA-Z0-9-/]+)/page/([0-9]+)/{0,1}$ /journal/archive.php?year=$1&page=$2 [L]
+RewriteRule ^journal/date/([a-zA-Z0-9-/]+)$ /journal/archive.php?year=$1 [L]
+
+#Blog Tag
+RewriteRule ^journal/tag/([a-zA-Z0-9-/]+)/page/([0-9]+)/{0,1}$ /journal/archive.php?tag=$1&page=$2 [L]
+RewriteRule ^journal/tag/([a-zA-Z0-9-/]+)$ /journal/archive.php?tag=$1 [L]
+
+#Main Blog Url
+RewriteRule ^journal/([a-zA-Z0-9-/]+)$ /journal/post.php?s=$1 [L]
+
+#Gallery URLs
+#RewriteRule ^gallery/page/([0-9]+)$ /gallery/?page=$1 [L]
+RewriteRule ^gallery/([a-zA-Z0-9-/]+)$ /gallery/album.php?s=$1 [L]
+
+
+</IfModule>

@@ -1,0 +1,8 @@
+## Directories and files in git but not deployed to server
+sass/**
+scripts/js/**
+.htaccess
+.deployignore
+.gitignore
+package.json
+gulpfile.js
