@@ -1,0 +1,45 @@
+<!-- Gallery Index Template -->
+<section class="gallery-index-section">
+  <div class="flip-container">
+    <div class="front face">
+      <img class="gallery-index-image" src="<perch:gallery id="large" type="image"/>" alt="<perch:gallery id="image-alt" />"
+        sizes="100vw"
+    	  srcset="<perch:gallery type="image" id="indexLarge" /> 1600w,
+                <perch:gallery type="image" id="indexMedium" /> 1100w,
+                <perch:gallery type="image" id="indexSmall" /> 700w,
+    	          <perch:gallery type="image" id="indexTiny" /> 500w" />
+    </div>
+    <div class="back face">
+      <h2 class="gallery-title">
+        <a class="gallery-title-link" href="<perch:gallery id="albumSlug" />">
+            <perch:gallery id="albumTitle" />
+        </a>
+      </h2>
+      <a class="gallery-index-textarea-link" href="<perch:gallery id="albumSlug" />">
+        <perch:gallery id="description" html="true" />
+      </a>
+    </div>
+  </div>
+  <div class="ie-gallery-index"><!-- For Ie as flip doesn;t work -->
+    <h2 class="ie-gallery-title">
+    <a class="ie-gallery-title-link" href="<perch:gallery id="albumSlug" />">
+        <perch:gallery id="albumTitle" />
+    </a>
+  </h2>
+  </div>
+</section>
+<perch:after>
+    </ul>
+    <perch:if exists="paging">
+        <div class="gallery-paging">
+            Page <perch:gallery id="current_page" /> of <perch:gallery id="number_of_pages" />
+            <perch:gallery id="page_links" encode="false" />
+            <perch:if exists="not_first_page">
+                <a href="<perch:gallery id="prev_url" encode="false" />">Previous</a>
+            </perch:if>
+            <perch:if exists="not_last_page">
+                <a href="<perch:gallery id="next_url" encode="false" />">Next</a>
+            </perch:if>
+        </div>
+    </perch:if>
+</perch:after>

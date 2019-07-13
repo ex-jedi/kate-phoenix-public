@@ -1,0 +1,14 @@
+<section class="profile-section">
+  <h1 class="profile-title"><perch:content id="profile_title" type="text" label="Profile Title"  /></h1>
+  <div class="text-div profile-text-div">
+    <img class="profile-image"  src="<perch:content id="main_profile_image" label="Profile Image" type="image" width="1200"/>" alt="<perch:content id="alt" type="text" label="Image description"/>"
+    sizes="(max-width:800px) 90vw, (max-width:1500px) 65vw, 1000px"
+    srcset="<perch:content type="image" id="main_profile_image" width="1000" /> 1000w,
+            <perch:content type="image" id="main_profile_image" width="800" /> 800w,
+            <perch:content type="image" id="main_profile_image" width="600" /> 600w,
+            <perch:content type="image" id="main_profile_image" width="400" /> 400w" />
+<div class="homepage-text-block">
+  <perch:content id="homepage_text_block" type="textarea" editor="redactor" html="true" label="Homepage Text" size="xl" count="words" />
+</div>
+</div>
+</section>

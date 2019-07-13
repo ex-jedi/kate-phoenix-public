@@ -1,0 +1,23 @@
+<perch:before>
+	<div class="gallery-album">
+</perch:before>
+<div class="album-image-div">
+	<img class="album-image" src="<perch:gallery id="large" type="image"/>" alt="<perch:gallery id="image-alt" />"
+    sizes="(max-width: 750px) 100vw,
+		(max-width: 900px) 90vw,
+		(max-width: 2000px) 80vw, 100vw"
+	  srcset="<perch:gallery type="image" id="one" /> 2000w,
+						<perch:gallery type="image" id="two" /> 1600w,
+						<perch:gallery type="image" id="three" /> 1100w,
+	          <perch:gallery type="image" id="four" /> 600w" />
+	<perch:if exists="image-sale-text">
+		<div class="sale-link-div">
+			<a class="image-sale-link" target="_blank" href="<perch:gallery id="image-sale-link"/>">
+				<perch:gallery id="image-sale-text" />
+			</a>
+		</div>
+	</perch:if>
+</div>
+<perch:after>
+	</div>
+</perch:after>

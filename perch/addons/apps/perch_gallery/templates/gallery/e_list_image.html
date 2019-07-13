@@ -1,0 +1,28 @@
+<perch:before>
+	<ul class="imagelisting glist cont">
+</perch:before>
+
+	<li>
+		<a href="<perch:gallery id="main" />">
+			<img src="<perch:gallery id="small" />" width="<perch:gallery id="small-w" />" height="<perch:gallery id="small-h" />" alt="<perch:gallery id="imageAlt" />" />
+		</a>
+	</li>
+
+<perch:after>
+	</ul>
+	
+	<perch:if exists="paging">
+	    <ul class="pager glist">
+	        <li class="paging-label">Page <perch:gallery id="current_page" /> of <perch:gallery id="number_of_pages" /></li>
+			
+		        <perch:if exists="not_first_page">
+		            <li><a class="paging-prev" href="<perch:gallery id="prev_url" encode="false" />">Previous</a></li>
+		        </perch:if>
+		        <perch:if exists="not_last_page">
+		            <li><a class="paging-next" href="<perch:gallery id="next_url" encode="false" />">Next</a></li>
+		        </perch:if>
+			
+	    </ul>
+	</perch:if>
+	
+</perch:after>

@@ -1,0 +1,17 @@
+<perch:before><div class="slider-container"></perch:before>
+	<perch:repeater id="images" label="Main Header Images" max="15">
+    <div>
+      <img class="main-header-image crop-from-<perch:content id="main-header-image-class" label="Choose to anchor image to the top, center or bottom." type="select" options="Top,Center,Bottom" />" src="<perch:content id="main-header-image" type="image" width="2200"/>" alt="<perch:content id="alt" type="text" label="Image description"/>"
+        sizes="100vw"
+        srcset="<perch:content type="image" id="main-header-image" width="2000" /> 2000w,
+                <perch:content type="image" id="main-header-image" width="1750" /> 1750w,
+                <perch:content type="image" id="main-header-image" width="1550" /> 1550w,
+                <perch:content type="image" id="main-header-image" width="1350" /> 1350w,
+                <perch:content type="image" id="main-header-image" width="1150" /> 1150w,
+                <perch:content type="image" id="main-header-image" width="950" /> 950w,
+                <perch:content type="image" id="main-header-image" width="750" /> 750w,
+                <perch:content type="image" id="main-header-image" width="550" /> 550w,
+                <perch:content type="image" id="main-header-image" width="350" /> 350w">
+      </div>
+  </perch:repeater>
+<perch:after></div></perch:after>

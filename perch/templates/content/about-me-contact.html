@@ -1,0 +1,44 @@
+<section class="about-me-contact-section" id="contact-me">
+    <h2 class="contact-form-title">
+        <perch:content id="contact_form_title" type="text" label="Contact form title." size="l" />
+    </h2>
+    <div class="form-container">
+        <perch:form class="homepage-contact-form" id="contact" method="post" app="perch_forms">
+            <perch:content id="contact_form_message" type="textarea" label="Contact Form Message" html="true" editor="redactor" />
+            <div>
+                <perch:label for="name">Name</perch:label>
+                <perch:input type="text" id="name" required="true" label="Name" />
+                <perch:error class="form-error" for="name" type="required">Name</perch:error>
+            </div>
+            <div>
+                <perch:label for="email">Email</perch:label>
+                <perch:input type="email" id="email" required="true" label="Email" />
+                <perch:error class="form-error" for="email" type="required">Please add your email address</perch:error>
+                <perch:error class="form-error" for="email" type="format">Please check your email address</perch:error>
+            </div>
+            <div class="form-identification-number">
+                <perch:label for="messageAreaOne">Message: Leave this field blank if you are a human</perch:label>
+                <perch:input type="textarea" id="messageAreaOne" aria-hidden="true" autocomplete="off" antispam="honeypot" />
+            </div>
+            <div>
+                <perch:label for="message">Message</perch:label>
+                <perch:input type="textarea" id="message" required="true" label="Message" />
+                <perch:error class="form-error" for="message" type="required">Please add a message</perch:error>
+            </div>
+            <div class="checkbox-div">
+                <perch:input class="consent-checkbox" id="consentCheck" type="checkbox" label="Consent Checkbox" value="Yes"  required="true">
+                <perch:label class="consent-check-label" for="consentCheck">By checking this box you accept the <a target="_blank" title="Opens in new window" href="/privacy-and-cookie-policy">Kate Phoenix Art Privacy and Cookie Policy.</a>  </perch:label>
+            </div>
+
+            <div class="button">
+                <perch:input type="submit" id="submit" value="Send" />
+            </div>
+
+            <perch:success>
+                <div class="success">
+                    <perch:content id="success" type="textarea" label="Thank you message" html="true" editor="redactor" />
+                </div>
+            </perch:success>
+        </perch:form>
+    </div>
+</section>

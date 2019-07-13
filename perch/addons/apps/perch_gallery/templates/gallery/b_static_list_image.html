@@ -1,0 +1,15 @@
+<perch:before>
+	<h2><perch:gallery id="albumTitle" /></h2>
+
+    <perch:gallery id="description" markdown="true" />
+	
+	<ul class="imagelisting glist cont">
+</perch:before>
+	<li>
+		<a href="image.php?id=<perch:gallery id="_id" />">
+			<img src="<perch:gallery id="small" />" alt="<perch:gallery id="imageAlt" />" height="<perch:gallery id="small-h" />" width="<perch:gallery id="small-w" /> "/>
+		</a>
+	</li>
+<perch:after>
+	</ul>
+</perch:after>

@@ -1,0 +1,94 @@
+@import 'bits';
+
+.legals {
+  @include main-background;
+  width: 100%;
+  background-color: $light-background;
+  margin: 0 auto;
+
+  li {
+    margin-bottom: 10px;
+  }
+}
+
+.legals-header {
+  @include gallery-background;
+  position: relative;
+  width: 100%;
+
+  &::after {
+    @include breakpoint(650) {
+      background-size: cover;
+    }
+  }
+
+  #pull {
+    color: $font-colour;
+  }
+
+}
+
+.legals-header-inner {
+  position: relative;
+}
+
+.legals-nav {
+  a {
+   background-color: transparent;
+   color: $font-colour;
+ }
+
+ a:hover {
+   color: $font-colour;
+   border-bottom: 1px solid $font-colour;
+
+   @include breakpoint(menu) {
+     border-bottom: none;
+   }
+ }
+}
+
+.legals-sticky-nav {
+  a {
+    color: $white !important;
+  }
+}
+
+.text-div-title {
+  width: 100%;
+  padding: 20px 0;
+  font-size: 1.5rem;
+}
+
+.legals-text-section {
+  max-width: 1100px;
+  padding: 0 $paragraph-spacing;
+  margin-bottom: $heading-spacing;
+  overflow: hidden;
+}
+
+.legals-footer {
+  width: 100%;
+  padding: 20px;
+
+  &::after {
+    @include breakpoint(650) {
+      background-size: cover;
+    }
+  }
+
+  .footer-legal-promo {
+    margin: 0;
+  }
+}
+
+
+//******************** IE ********************
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+
+  .legals-header {
+    height: auto !important;
+  }
+
+}

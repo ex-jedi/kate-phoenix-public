@@ -1,0 +1,19 @@
+{
+	"js": [
+		"PERCH_LOGINPATH/addons/apps/perch_gallery/js/plupload.js",
+		"PERCH_LOGINPATH/addons/apps/perch_gallery/js/plupload.gears.js",
+		"PERCH_LOGINPATH/addons/apps/perch_gallery/js/plupload.silverlight.js",
+		"PERCH_LOGINPATH/addons/apps/perch_gallery/js/plupload.flash.js",
+		"PERCH_LOGINPATH/addons/apps/perch_gallery/js/plupload.html4.js",
+		"PERCH_LOGINPATH/addons/apps/perch_gallery/js/plupload.html5.js",
+		"PERCH_LOGINPATH/addons/apps/perch_gallery/js/jquery.plupload.queue/jquery.plupload.queue.js",
+		"PERCH_LOGINPATH/addons/apps/perch_gallery/upload.js"
+	],
+	"css": [
+		"PERCH_LOGINPATH/addons/apps/perch_gallery/js/jquery.plupload.queue/css/jquery.plupload.queue.css",
+		"PERCH_LOGINPATH/addons/apps/perch_gallery/admin.css"
+	]
+}
+
+
+

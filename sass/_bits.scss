@@ -1,0 +1,190 @@
+//********************************************************************************************************
+//This file is imported into all Sass files
+//********************************************************************************************************
+
+//**************************************** Code Things ****************************************
+
+//****************************** Sass Placeholders ******************************
+%flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+%flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+//****************************** Typeography ******************************
+
+@mixin heading-font-stack {
+  font-family: 'essonnes-display', sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+
+@mixin font-stack {
+  font-family: "adobe-garamond-pro",serif;
+  font-style: normal;
+  font-weight: 400;
+}
+
+
+//**************************************** Media Queries ****************************************
+
+@mixin breakpoint($point) {
+  @if $point == 1500 {
+    @media (max-width: 1500px) { @content; }
+  }
+  @if $point == 1100 {
+    @media (max-width: 1100px) { @content; }
+  }
+  @if $point == 1000 {
+    @media (max-width: 1000px) { @content; }
+  }
+  @if $point == 900 {
+    @media (max-width: 900px) { @content; }
+  }
+  @if $point == 800 {
+    @media (max-width: 800px) { @content; }
+  }
+  @if $point == menu {
+    @media (max-width: 750px) { @content; }
+  }
+  @if $point == 650 {
+    @media (max-width: 650px) { @content; }
+  }
+  @if $point == 500 {
+    @media (max-width: 500px) { @content; }
+  }
+  @if $point == 450 {
+    @media (max-width: 450px) { @content; }
+  }
+  @if $point == 350 {
+    @media (max-width: 350px) { @content; }
+  }
+  @if $point == minimum {
+    @media (max-width: 300px) { @content; }
+  }
+}
+
+
+//**************************************** Variables ****************************************
+
+//************************* Color Variables *************************
+
+//Main Colours
+$white: #fff;
+$off-white: #e4e2e2;
+$light-grey: #c6c2c2;
+$black: #000;
+
+//Element colours
+$light-background: #fff;
+$dark-background: #323131;
+$gallery-background: #abbcc3;
+
+//Link And Form colours
+$link-colour: #7a7a7c;
+$input-colour:#599aff;
+
+//Font Colours
+$font-colour: #323131;
+$light-font-colour: #e4e2e2;
+$error-colour: #f00;
+
+//Extra colours
+
+
+//************************* Transition Variable *************************
+$transition-duration: .3s  ease-in-out 0s;
+$transition-duration-fast: .2s  ease-in-out 0s;
+$transition-duration-slow: .8s  ease-in-out 0s;
+
+
+//************************* Spacing *************************
+
+//Headings
+$xl-heading-spacing: 10%;
+$heading-spacing: 5%;
+$small-heading-spacing: 2.5%;
+
+
+//Articles
+$article-spacing: 70px;
+$article-spacing-small: 35px;
+
+//Sections
+$section-spacing: 70px;
+$section-spacing-small: 35px;
+
+//Paragraphs
+$xl-paragraph-spacing: 8%;
+$paragraph-spacing: 4%;
+$half-paragraph-spacing: 2%;
+
+//Forms
+$input-spacing: 1%;
+
+//******************** Backgrounds ********************
+
+@mixin main-background {
+  // background-color: $white;
+  background-image: url('/images/white_wall_hash.png');
+}
+
+
+@mixin light-grey-background {
+  background-image: url('/images/white_wall_very_light_grey.png');
+}
+
+@mixin picture-background {
+  &::after {
+    content: '';
+    background: url('/images/footer-background.jpg');
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: .6;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+
+    @include breakpoint(1000) {
+      background: url('/images/footer-background-small.jpg');
+    }
+
+    @include breakpoint(650) {
+      background: url('/images/footer-background-tiny.jpg');
+      background-size: contain;
+    }
+  }
+}
+
+@mixin gallery-background {
+  &::after {
+    content: '';
+    background: url('/images/footer-background.jpg');
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    opacity: .6;
+    position: fixed;
+    z-index: -1;
+
+    @include breakpoint(1000) {
+      background: url('/images/footer-background-small.jpg');
+    }
+
+    @include breakpoint(500) {
+      background: url('/images/footer-background-tiny.jpg');
+    }
+  }
+}

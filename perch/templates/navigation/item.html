@@ -1,0 +1,9 @@
+<perch:before>
+<div class="responsive-main-nav">
+</perch:before>
+  <a class="main-nav-link<perch:if exists="ancestor_page"> ancestor</perch:if>" <perch:if exists="current_page"> id="main-nav-current"</perch:if> href="<perch:pages id="pagePath"  />"><perch:pages id="pageNavText" /></a>
+  <perch:pages id="subitems" encode="false" />
+  <perch:after>
+  </div>
+  <a href="#" id="pull"><span id="pull-span">SHOW&nbsp;</span>MENU</a>
+</perch:after>

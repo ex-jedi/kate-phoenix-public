@@ -1,0 +1,8 @@
+<article class="home-page-text">
+<section class="home-page-section">
+  <perch:if exists="home-page-heading">
+    <h1 class="home-page-heading"><perch:content id="home-page-heading" type="text" label="Home Page Title (optional)"  /></h1>
+  </perch:if>
+  <perch:content id="home-page-text-block" type="textarea" editor="redactor" html="true" label="Homepage Text" size="xl" count="words" />
+</section>
+</article>

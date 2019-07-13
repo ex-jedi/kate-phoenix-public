@@ -1,0 +1,78 @@
+body #content #main-panel form input.order {
+	width: 3em;
+}
+
+body #content #main-panel table.d tr td a.img:link,
+body #content #main-panel table.d tr td a.img:visited {
+	border: 0;
+	text-decoration: none;
+}
+
+table.d th.img {
+	width: 130px;
+}
+
+table.imglist td {
+	vertical-align: top;
+}
+
+div.plupload_header_content {
+	display: none;
+}
+
+ul.image-list {
+	margin: 0 0 0 -15px;
+	list-style: none;
+}
+
+ul.image-list li {
+	display: block;
+	float: left;
+	margin: 0 5px 5px 0;
+	position: relative;
+}
+
+ul.image-list li input {
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+	opacity: 0.5;
+	width: 25px;
+	height: 25px;
+
+}
+
+ul.image-list li img {
+	display: block;
+}
+
+ul.image-list li:hover input,
+ul.image-list li input:checked {
+	opacity: 1;
+}
+
+
+body #content #main-panel ul.image-list li a.img:link,
+body #content #main-panel ul.image-list li a.img:visited {
+	border: none;
+	text-decoration: none;
+}
+
+.plupload_filelist_footer {
+	height: 36px;
+}
+
+.plupload_filelist_header, 
+.plupload_filelist_footer {
+	background-color: #f9f9f9;
+	border-bottom: 1px solid #e9eaea;
+}
+
+.plupload_scroll .plupload_filelist {
+	background-color: #fcfcfc;
+}
+
+#gallery-controls {
+	clear: left;
+	padding-top: 36px;
+}

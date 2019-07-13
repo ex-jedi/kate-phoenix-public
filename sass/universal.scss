@@ -1,0 +1,619 @@
+//********************************************************************************************************
+//Universal Sass Files
+//********************************************************************************************************
+
+//**************************************** Imports ****************************************
+
+@import "bits";
+@import "baseline";
+
+//**************************************** Page Wrappers ****************************************
+
+html {
+  font-size: 20px;
+
+  @include breakpoint(350) {
+    font-size: 16px;
+  }
+}
+
+.wrapper {
+  padding: 0;
+  margin: 0;
+  @extend %flex-col;
+  justify-content: space-between;
+  min-width: 300px;
+}
+
+body {
+  @include font-stack;
+  @include main-background;
+  margin: 0;
+  padding: 0;
+  color: $font-colour;
+  overflow-x: hidden;
+}
+
+//**************************************** Header ****************************************
+
+header {
+  overflow: hidden;
+  position: relative;
+}
+
+.header-inner {
+  @extend %flex-row;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 10px 0;
+  justify-content: space-between;
+  align-items: center;
+
+  @include breakpoint(menu) {
+    flex-direction: column;
+  }
+}
+
+.header-title {
+  width: auto;
+  margin: 40px;
+  overflow: visible;
+  font-size: 2rem;
+  font-weight: 400;
+
+  @include breakpoint(menu) {
+    font-size: 10vw;
+    margin: 40px 0;
+  }
+}
+
+.header-title-link {
+  color: $font-colour;
+
+  &:hover {
+    color: $font-colour;
+  }
+}
+
+.main-header-image {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  height: 100vh;
+  //Parallax
+  position: fixed;
+  z-index: -1;
+}
+
+.crop-from-Top {
+  //Capitalised to look better in Perch UI.
+  object-position: top;
+}
+
+.crop-from-Center {
+  //Capitalised to look better in Perch UI.
+  object-position: center;
+}
+
+.crop-from-Bottom {
+  //Capitalised to look better in Perch UI.
+  object-position: bottom;
+}
+
+//Prevents slider images flashing up on page
+.slider-container {
+  opacity: 0;
+}
+
+.slider-container.slick-initialized {
+  opacity: 1;
+  transition: opacity 0.3s ease-out;
+}
+
+//****************************** Navigation ******************************
+
+.main-nav-link {
+  color: $white;
+  margin-right: 10px;
+}
+
+.main-nav-link:hover {
+  color: $white;
+  border-bottom: 1px solid $white;
+  padding-bottom: 0;
+}
+
+#main-nav-current {
+  color: $font-colour;
+  cursor: pointer;
+  pointer-events: none;
+  padding-bottom: 0;
+}
+
+.responsive-main-nav {
+  display: block;
+}
+
+//********************Responsive Nav********************
+
+.main-nav {
+  font-size: 1rem;
+  transition: background-color 0.6s;
+
+  @include breakpoint(menu) {
+    a {
+      font-size: 1.25rem;
+      margin: 0 auto 20px;
+      padding: 0;
+      border-bottom: none;
+      display: block;
+      text-align: center;
+    }
+
+    a:hover {
+      border-bottom: none;
+    }
+
+    .responsive-main-nav {
+      display: none;
+      height: auto;
+    }
+
+    #pull {
+      display: block;
+      visibility: visible;
+      color: $white;
+      margin-bottom: 0;
+    }
+  }
+  //End of responsive nav styles
+}
+
+#pull {
+  display: none;
+  visibility: hidden;
+}
+
+//******************** Sticky Nav  ********************
+
+.sticky-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: $gallery-background;
+  width: 100%;
+  padding: 5px 0;
+
+  a {
+    font-size: 1rem;
+  }
+
+  #main-nav-current {
+    color: $white;
+    text-decoration: underline;
+  }
+}
+
+//****************************** Headings ******************************
+h1,
+h2,
+h3,
+h4 {
+  font-size: inherit;
+  text-align: center;
+  @include heading-font-stack;
+  width: 100%;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin: 0 auto $heading-spacing;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 2rem;
+  text-transform: uppercase;
+  margin: 0 auto $heading-spacing;
+  transform: scale(1, 0.9);
+}
+
+//****************************** Main Containers ******************************
+
+main {
+  @extend %flex-col;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+
+article {
+  margin: 0 auto;
+  padding: $article-spacing 0;
+}
+
+section {
+  margin: 0 auto;
+  padding: $section-spacing 25%;
+  @include breakpoint(1500) {
+    padding: $section-spacing-small 20%;
+  }
+  @include breakpoint(1100) {
+    padding: $section-spacing 15%;
+  }
+  @include breakpoint(900) {
+    padding: $section-spacing 10%;
+  }
+  @include breakpoint(menu) {
+    padding: $section-spacing $paragraph-spacing;
+  }
+}
+
+//Hiding font till Typekit loads
+.wf-loading body {
+  visibility: hidden;
+}
+
+.wf-active body {
+  visibility: visible;
+}
+
+//****************************** Paragraphs ******************************
+p {
+  font-size: 1.2rem;
+  line-height: 1.7rem;
+  padding: 0;
+  margin: 0 auto $paragraph-spacing;
+
+  @include breakpoint(450) {
+    margin-bottom: $xl-paragraph-spacing;
+  }
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+.text-div {
+  margin: 0;
+}
+
+//**************************************** Inline Elements ****************************************
+
+img {
+  max-width: 100%;
+}
+//****************************** Links ******************************
+
+a {
+  transition: all $transition-duration;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 5px;
+}
+
+main {
+  a {
+    color: $link-colour;
+  }
+
+  a:hover,
+  a:focus {
+    color: $font-colour;
+    border-bottom: 1px solid $font-colour;
+    padding-bottom: 0;
+  }
+}
+
+//Quashing menu underlines everywhere for smaller screens
+a,
+a:hover {
+  @include breakpoint(menu) {
+    border-bottom: none !important;
+  }
+}
+
+//****************************** Images ******************************
+img {
+  border: 0;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
+
+//****************************** Footer ******************************
+
+footer {
+  @extend %flex-col;
+  justify-content: space-between;
+  padding: 0 20px 20px;
+  width: 100%;
+  align-self: center;
+  position: relative;
+  z-index: 10;
+  overflow: hidden;
+  //Parallax
+  background-color: $white;
+
+  @include breakpoint(650) {
+    padding: $section-spacing-small $paragraph-spacing;
+  }
+
+  p {
+    margin: 1% 0;
+    font-size: 1rem;
+  }
+}
+
+.footer-legal-promo {
+  margin: $heading-spacing 0 1%;
+  @extend %flex-row;
+  justify-content: space-between;
+
+  @include breakpoint(650) {
+    flex-direction: column;
+  }
+}
+
+.promo {
+  @extend %flex-col;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 270px;
+
+  @include breakpoint(650) {
+    order: 3;
+    width: auto;
+    align-items: center;
+  }
+}
+
+.footer-legal {
+  width: 270px;
+
+  @include breakpoint(650) {
+    order: 2;
+  }
+}
+
+footer,
+.footer-legal {
+  @include breakpoint(650) {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.dark-footer {
+  color: $font-colour;
+  // @include grey-background;
+  @include picture-background;
+
+  a {
+    color: $font-colour;
+    border-bottom: 1px solid transparent;
+  }
+
+  a:hover,
+  a:focus {
+    color: $font-colour;
+    border-bottom: 1px solid $font-colour;
+    padding-bottom: 0;
+  }
+}
+
+.light-footer {
+  color: $font-colour;
+  background-color: $light-background;
+  @include main-background;
+
+  a {
+    color: $font-colour;
+    border-bottom: 1px solid transparent;
+  }
+
+  a:hover,
+  a:focus {
+    color: $font-colour;
+    border-bottom: 1px solid $font-colour;
+    padding-bottom: 0;
+  }
+}
+
+//Social media div (placed here to overide link underline styles)
+
+.footer-social-media {
+  @extend %flex-row;
+  align-items: center;
+  // margin-right: 66px;
+  justify-content: center;
+
+  .footer-social-media-link,
+  .footer-social-media-link:hover,
+  .footer-social-media-link:focus {
+    padding: 0;
+    border-bottom: none;
+  }
+
+  @include breakpoint(650) {
+    order: 1;
+    margin-bottom: $heading-spacing;
+  }
+}
+
+.footer-social-media-icon {
+  height: 35px;
+}
+
+#footer-pinterest-link {
+  margin: 0 50px;
+}
+
+.footer-social-media-link {
+  transition: transform 0.6s ease-in-out;
+}
+
+#footer-pinterest-link:hover,
+#footer-twitter-link:hover,
+#footer-bloglovin-link:hover {
+  transform: rotate(720deg);
+}
+
+//************************* Instagram Feed *************************
+
+.instagram-title {
+  margin: $paragraph-spacing auto;
+  @include breakpoint(650) {
+    margin: 0 auto $section-spacing-small;
+  }
+}
+
+#instafeed {
+  @extend %flex-row;
+  margin: 0 auto;
+  width: 100%;
+  justify-content: space-between;
+
+  @include breakpoint(650) {
+    flex-direction: column;
+  }
+}
+
+.instagram-image-wrapper {
+  flex: 1 1 auto;
+  height: auto;
+  opacity: 1;
+  transition: opacity 0.8s;
+
+  @include breakpoint(650) {
+    margin: 0 0 4%;
+  }
+}
+
+.instagram-link {
+  background-size: cover;
+  display: block;
+  width: 100%;
+  height: 0;
+  padding-top: 100%;
+  padding-bottom: 0;
+  border-bottom: 0 !important;
+}
+
+.instagram-fade {
+  opacity: 0.2;
+
+  @include breakpoint(menu) {
+    opacity: 1;
+  }
+}
+
+//******************** Brower Specific Styles ********************
+
+//************** Microsoft Edge **************
+@supports (-ms-ime-align: auto) {
+  .main-header-image {
+    height: auto;
+    width: 100%;
+  }
+
+  .main-header {
+    max-height: 100vh !important;
+  }
+
+  .blog-header {
+    @include breakpoint(1000) {
+      height: auto !important;
+    }
+  }
+
+  .header-title {
+    @include breakpoint(450) {
+      width: 100%;
+      font-size: 2rem;
+    }
+  }
+}
+
+//**************************************** Browser Taming ****************************************
+
+//******************** IE ********************
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .main-header-image {
+    height: auto;
+    width: auto;
+  }
+
+  .main-header {
+    height: 100vh !important;
+    @include breakpoint(450) {
+      height: auto !important;
+    }
+  }
+
+  .header-title {
+    @include breakpoint(450) {
+      width: 100%;
+      font-size: 2rem;
+    }
+  }
+
+  .main-nav-link {
+    color: $white;
+    margin-right: 10px;
+  }
+
+  .main-nav-link:hover {
+    color: $white;
+    border-bottom: 1px solid $white;
+    padding-bottom: 0;
+  }
+
+  #main-nav-current {
+    border-bottom: none;
+  }
+}
+
+//******************** Edge ********************
+
+@supports (-ms-ime-align: auto) {
+  #main-nav-current {
+    border-bottom: none;
+  }
+}
+
+//******************** Firefox Styles ********************
+
+@-moz-document url-prefix() {
+  .footer-social-media {
+    @include breakpoint(650) {
+      margin-top: 1rem;
+    }
+  }
+}
+
+//********** Skip to content link **********
+.show-on-focus {
+  position: absolute;
+  color: $light-font-colour;
+  background-color: $dark-background;
+  padding: 10px;
+  font-size: 1.2rem;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  margin: 0.5rem 0 0 0.5rem;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+
+  &:focus {
+    z-index: 20;
+    width: auto;
+    height: auto;
+    clip: auto;
+  }
+}

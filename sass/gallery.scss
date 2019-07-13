@@ -1,0 +1,310 @@
+//**************************************** Imports ****************************************
+@import 'bits';
+@import 'slick';
+@import 'slick-theme';
+//**************************************** Main Styles ****************************************
+
+
+//******************** Header ********************
+
+.gallery-header {
+  position: relative;
+  //Parallax background
+  @include gallery-background;
+
+  &::after {
+    @include breakpoint(650) {
+      background-size: cover;
+    }
+  }
+
+  a,
+  a:hover,
+  a:focus {
+    color: $white;
+  }
+
+  a:hover {
+    border-bottom: 1px solid $white;
+  }
+
+  .header-title a {
+    color: $font-colour;
+}
+
+.header-title-link {
+  border-bottom: 0;
+
+    &:hover {
+      border-bottom: 0;
+    }
+}
+
+#main-nav-current {
+  color: $font-colour;
+  pointer-events: all;
+
+  @include breakpoint(menu) {
+    display: flex;
+    flex: 0 0 auto;
+    justify-content: center;
+    width: 4.5rem;
+    padding-bottom: 5px;
+  }
+}
+
+
+.sticky-nav {
+
+  a {
+    color: $white;
+  }
+
+  #main-nav-current {
+    color: $white;
+    border-bottom: 1px solid $font-colour;
+  }
+}
+
+  .header-inner {
+    position: static;
+  }
+
+  @include breakpoint(menu) {
+    padding-bottom: 5px;
+  }
+}
+
+//******************** Headings ********************
+
+.gallery-title {
+  margin: 0  auto 10px;
+  font-size: 1.2rem;
+}
+
+.gallery-title-link {
+  color: $light-background;
+  line-height: 1.55rem;
+  &:hover {
+    color: $light-background;
+    border-bottom: 1px solid $light-background;
+    margin-bottom: 5px;
+  }
+}
+
+.ie-gallery-index {
+  display: none;
+  visibility: hidden;
+}
+
+//******************** Wrappers ********************
+
+.gallery-main-content {
+  width: 100%;
+}
+
+.gallery-article {
+  @extend %flex-col;
+  margin: 0 auto;
+  padding: $article-spacing $half-paragraph-spacing;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  //parallax
+  @include main-background;
+
+}
+
+.gallery-index-section {
+  height: 80vh;
+  margin: 10vh auto;
+  padding: 0;
+  position: relative;
+  perspective: 1000;
+
+  @include breakpoint(1100) {
+    height: auto;
+  }
+
+  @include breakpoint(650) {
+    margin: $section-spacing-small auto;
+  }
+}
+
+.gallery-index-image {
+  width: auto;
+  max-height: 80vh;
+}
+
+
+//******************** Paragraphs ********************
+
+.gallery-index-textarea-link {
+  color: $light-background;
+  border-bottom: none;
+  padding-bottom: 0;
+  overflow-y: hidden;
+  p {
+    font-size: 1rem;
+  }
+  &:hover {
+    color: $light-background;
+    border-bottom: none;
+  }
+}
+
+//**************************************** Index Page ****************************************
+
+//********** Flip Effect  **********
+
+.flip-container {
+  width: 100%;
+  transform-style: preserve-3d;
+  transition: all 1.0s linear;
+}
+
+.gallery-index-section:hover .flip-container {
+  transform: rotateY(180deg);
+}
+
+.face {
+  backface-visibility: hidden;
+}
+
+.back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  transform: rotateY(180deg);
+  padding: 10px;
+  text-align: center;
+  background-color: $gallery-background;
+  @extend %flex-col;
+  justify-content: center;
+  align-items: center;
+}
+
+//Paging
+
+.gallery-paging {
+  width: 100%;
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 1.2rem;
+}
+
+//**************************************** Album Page ****************************************
+
+.album-main-content {
+  //parallax
+  @include main-background;
+  padding: $article-spacing 0;
+  width: 100%;
+  *:focus {
+    outline: none;
+  }
+}
+
+.album-image {
+  max-height: 90vh;
+  margin: 0 auto;
+  padding: 0;
+}
+
+
+//******************** Popup ********************
+
+.album-image-div {
+  position: relative;
+}
+
+.image-sale-link {
+  color: $font-colour;
+  font-size: 1.3rem;
+  margin: $section-spacing-small auto 0;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 8px;
+
+  &:hover,
+  &:focus,
+  &:active {
+    border-bottom: 1px solid $font-colour;
+    padding-bottom: 3px;
+  }
+}
+
+.sale-link-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background: transparent;
+  position: relative;
+  background-color: $white;
+  @include main-background;
+}
+
+
+//**************************************** Browser Styles ****************************************
+
+//******************** Edge Styles ********************
+
+@supports (-ms-ime-align:auto) {
+
+  //Bug where bottom galleries are cut off. Overflow Problem?
+  .gallery-article {
+    overflow-y: auto;
+  }
+}
+
+
+//******************** Firefox Styles ********************
+
+@-moz-document url-prefix() {
+
+  //Firefox doesn't like vertical percentages
+  .gallery-index-section {
+    margin-bottom: 30px;
+  }
+}
+
+//******************** IE ********************
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .gallery-header {
+    height: auto !important;
+  }
+
+  .slick-prev,
+  .slick-next {
+    top: 50% !important;
+  }
+
+
+  //Showing gallery links as flip effect doesn't work properly
+
+  .gallery-index-section:hover .flip-container {
+    transform: none;
+  }
+
+  .ie-gallery-index {
+    display: block;
+    visibility: visible;
+  }
+
+  .ie-gallery-title {
+    padding-top: 20px;
+    font-size: 1.3rem;
+    line-height: 1.8rem;
+  }
+
+  .ie-gallery-title-link{
+    color: $font-colour;
+  }
+
+  //IE didn't like auto margins
+  .image-sale-link {
+    margin: 10px;
+  }
+}

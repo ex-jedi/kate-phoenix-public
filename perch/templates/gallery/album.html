@@ -1,0 +1,16 @@
+<!-- Admin Fields Template -->
+<perch:gallery id="albumTitle" type="text" label="Album Title" size="l" order="1" />
+<perch:gallery id="description" type="textarea" label="Album Description" help="This is the page description that will display on the index page, in Google search results and social media shares. Try to keep below 160 characters. All Images must be at least 1600px x 1600px " editor="redactor" html="true" size="l" count="chars" order="2" />
+
+<perch:gallery id="twitterName" type="text" label="Twitter Username" help="Your twitter @name" size="l" order="3" />
+
+
+<!-- Product / image meta data -->
+<perch:gallery id="ogType" type="select" options="Gallery image|image.gallery,Product|product" label="Meta Type" help="If you choose product fill in product details." size="m" divider-before="Product Meta Data" order="4" />
+
+<perch:gallery id="albumPrice" type="text" label="Price" help="Dont include currency symbol" size="s" order="5" />
+
+<perch:gallery id="albumCurrency" type="select" options=" ,GBP,USD,EUR" label="Currency" order="6" />
+
+<perch:gallery id="albumAvailability" type="select" options=" ,In stock|instock,Out of stock|oos,Pending|pending" label="Availability"  order="7"/>
+

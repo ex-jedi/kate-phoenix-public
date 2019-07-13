@@ -1,0 +1,13 @@
+<perch:if exists="prev-id">
+    <li>
+        <h3>Previous</h3>
+        <a href="image.php?id=<perch:gallery id="prev-id" />"><img src="<perch:gallery id="prev-small" />" alt="<perch:gallery id="prev-imageAlt" />" height="<perch:gallery id="prev-small-h" />" width="<perch:gallery id="prev-small-w" /> "/></a>
+    </li>
+</perch:if>
+
+<perch:if exists="next-id">
+    <li>
+        <h3>Next</h3>
+        <a href="image.php?id=<perch:gallery id="next-id" />"><img src="<perch:gallery id="next-small" />" alt="<perch:gallery id="next-imageAlt" />" height="<perch:gallery id="next-small-h" />" width="<perch:gallery id="next-small-w" /> "/></a>
+    </li>
+</perch:if>

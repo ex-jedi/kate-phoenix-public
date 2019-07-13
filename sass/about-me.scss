@@ -1,0 +1,223 @@
+//**************************************** Imports****************************************
+@import "bits";
+//********************************************************************************
+
+// =========================================
+// ** Header  **
+// =========================================
+
+.about-me-wrapper {
+  //parallax
+  header {
+    height: 100vh;
+  }
+}
+
+//************** Main Content **************
+
+.about-me-article {
+  @include main-background;
+
+  z-index: 10;
+  padding-bottom: 0;
+
+  &::after {
+    position: fixed !important;
+  }
+}
+
+.profile-div {
+  margin-bottom: $paragraph-spacing;
+  position: relative;
+}
+
+.profile-text-div {
+  margin: 0;
+  height: 100%;
+}
+
+.profile-section {
+  padding-top: 0;
+}
+
+.profile-title {
+  font-size: 2rem;
+  width: auto;
+  font-weight: 400;
+  margin: 0 0 $article-spacing 0;
+
+  @include breakpoint(500) {
+    font-size: 15vw;
+  }
+}
+
+.profile-image {
+  max-width: 100%;
+  margin: 0 auto $xl-paragraph-spacing;
+  padding: 0;
+}
+
+.homepage-text-block {
+  padding: 0 0 $paragraph-spacing;
+
+  //Link underline for smaller screens
+  a {
+    @include breakpoint(menu) {
+      text-decoration: underline;
+    }
+  }
+}
+
+//****************************** Forms ******************************
+
+input,
+label,
+textarea {
+  display: block;
+  width: 100%;
+  font-family: inherit;
+  font-weight: normal;
+  color: inherit;
+}
+
+input,
+textarea {
+  margin-bottom: $input-spacing;
+  padding: 5px;
+  font-size: 1rem;
+  border: 1px solid $light-background;
+  outline: none;
+}
+
+input:focus,
+textarea:focus {
+  border: 1px solid $input-colour;
+  box-shadow: 0 0 1px 1px $input-colour;
+}
+
+label {
+  margin-bottom: 5px;
+  font-size: 1.2rem;
+  font-weight: inherit;
+}
+
+textarea {
+  resize: none;
+}
+
+.button {
+  input {
+    margin: 0;
+    width: auto;
+    padding: 0.5rem 2rem;
+    font-size: 1rem;
+  }
+}
+
+.form-error {
+  color: $error-colour;
+  outline: 1px dotted $error-colour;
+}
+
+.success {
+  @extend %flex-col;
+  align-items: center;
+  justify-content: center;
+}
+
+//********** Contact Section**********
+
+.about-me-contact-section {
+  @include picture-background;
+  position: relative;
+
+  &::after {
+    @include breakpoint(650) {
+      background-size: cover;
+    }
+  }
+
+  @include breakpoint(1000) {
+    padding-top: $section-spacing-small;
+    padding-bottom: section-spacing-small;
+  }
+}
+
+.form-container {
+  margin: 0 auto;
+
+  input,
+  textarea {
+    color: $font-colour;
+    font-weight: bold;
+    //Squares rounded IOS inputs
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+  }
+
+  .button {
+    input {
+      background-color: $white;
+    }
+  }
+}
+
+.form-container {
+  p {
+    margin-bottom: $heading-spacing;
+    text-align: center;
+  }
+}
+
+//********** Checkbox **********
+.checkbox-div {
+  @extend %flex-row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  position: relative;
+  margin: $paragraph-spacing 0;
+  font-size: 1rem;
+
+  a {
+    color: $font-colour;
+    text-decoration: underline;
+
+    &:hover,
+    &:focus {
+      border-bottom: 1px solid transparent;
+    }
+  }
+}
+
+.consent-checkbox {
+  width: fit-content;
+  flex: 0 1 auto;
+  margin: 2px 10px 0 3px;
+  transform: scale(1.5);
+  color: $font-colour;
+
+  &:hover,
+  &:focus {
+    border: 1px solid $light-background;
+    box-shadow: 0;
+  }
+}
+
+input[type="checkbox"]:checked + label:after {
+  content: "✔";
+  display: inline-block;
+  font-size: 0.9rem;
+  position: absolute;
+  top: 1px;
+  left: 2px;
+}
+//********** Anti Spam **********
+
+.form-identification-number {
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  display: none;
+  visibility: hidden;
+}
